@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/teststage.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+
+[node name="Teststage" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.0823529, 0.168627, 0.231373, 1 )
+polygon = PoolVector2Array( 0, 0, 640, 0, 640, 360, 0, 360 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color( 0.466667, 0.482353, 0.556863, 1 )
+polygon = PoolVector2Array( 517, 131, 524, 92, 529, 120, 535, 76, 539, 103, 548, 89, 557, 36, 565, 80, 575, 85, 584, 101, 591, 110, 600, 104, 608, 50, 610, 101, 617, 113, 626, 122, 621, 133, 614, 156, 604, 137, 592, 148, 576, 145, 573, 132, 564, 135, 554, 146, 539, 135, 531, 135, 526, 138 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2( -381, 161 )
+color = Color( 0.466667, 0.482353, 0.556863, 1 )
+polygon = PoolVector2Array( 517, 131, 524, 92, 529, 120, 535, 76, 539, 103, 548, 89, 557, 36, 565, 80, 575, 85, 584, 101, 591, 110, 600, 104, 608, 50, 610, 101, 617, 113, 626, 122, 621, 133, 614, 156, 604, 137, 592, 148, 576, 145, 573, 132, 564, 135, 554, 146, 539, 135, 531, 135, 526, 138 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+position = Vector2( 59, -1 )
+rotation = -3.14159
+color = Color( 0.466667, 0.482353, 0.556863, 1 )
+offset = Vector2( -576, -113 )
+polygon = PoolVector2Array( 517, 131, 524, 92, 529, 120, 535, 76, 539, 103, 548, 89, 557, 36, 565, 80, 575, 85, 584, 101, 591, 110, 600, 104, 608, 50, 610, 101, 617, 113, 626, 122, 621, 133, 614, 156, 604, 137, 592, 148, 576, 145, 573, 132, 564, 135, 554, 146, 539, 135, 531, 135, 526, 138 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+collision_layer = 1024
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PoolVector2Array( 0, 256, 64, 256, 128, 272, 320, 272, 384, 192, 448, 192, 512, 128, 640, 128, 640, 360, 0, 360 )
+
+[node name="Color" type="Polygon2D" parent="Ground"]
+color = Color( 0.407843, 0.439216, 0.498039, 1 )
+polygon = PoolVector2Array( 0, 256, 64, 256, 128, 272, 320, 272, 384, 192, 448, 192, 512, 128, 640, 128, 640, 360, 0, 360 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, 200 )

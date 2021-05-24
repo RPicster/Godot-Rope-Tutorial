@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "RopePiece",
+"language": "GDScript",
+"path": "res://Scripts/rope_piece.gd"
+} ]
+_global_script_class_icons={
+"RopePiece": ""
+}
+
+[application]
+
+config/name="Rope Tutorial"
+run/main_scene="res://Teststage.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=640
+window/size/height=360
+window/size/resizable=false
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

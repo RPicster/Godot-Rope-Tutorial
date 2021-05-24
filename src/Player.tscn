@@ -1,0 +1,183 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/player.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14, 32 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "hang"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual/ShapeHang:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -17.8147, -27.6353, -17.8147 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visual/ShapeHang:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ), Vector2( 6, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual/ShapeHang:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.9, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visual/ShapeHang:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visual/ShapeHang:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual/ShapeHang:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 4.42128, 0.0, -5.91078, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visual/ShapeHang:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.1, 1.0, 1.1, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visual/ShapeHang:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 5.0
+
+[node name="Player" type="KinematicBody2D"]
+z_index = 1
+collision_mask = 1024
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -32 )
+shape = SubResource( 1 )
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="ShapeHang" type="Polygon2D" parent="Visual"]
+self_modulate = Color( 1, 1, 1, 0 )
+color = Color( 0.552941, 0.286275, 0.0862745, 1 )
+offset = Vector2( 0, 0.29583 )
+polygon = PoolVector2Array( -6, -33, -6, -37, -13, -45, -11, -54, -7, -60, 2, -62, 9, -59, 14, -51, 13, -41, 7, -42, 8, -35, 3, -36, 3, -32, 7, -32, 10, -34, 11, -38, 13, -40, 15, -37, 13, -31, 8, -24, 7, -16, 10, -6, 3, 2, 2, -4, 5, -7, 2, -10, -2, -10, -2, -2, -3, 4, -6, -3, -7, -16, -7, -24, -11, -21, -9, -17, -10, -15, -14, -16, -15, -23 )
+
+[node name="RopeAttacher" type="Polygon2D" parent="Visual/ShapeHang"]
+visible = false
+position = Vector2( 13, -38 )
+color = Color( 0.988235, 0.533333, 0, 1 )
+polygon = PoolVector2Array( 0, 3, -3, 0, 0, -3, 3, 0 )
+
+[node name="ShapeNormal" type="Polygon2D" parent="Visual/ShapeHang"]
+position = Vector2( 0, -15.3119 )
+color = Color( 0.552941, 0.286275, 0.0862745, 1 )
+offset = Vector2( 0, 15 )
+polygon = PoolVector2Array( -6, -33, -6, -35, -14, -42, -14, -54, -9, -59, -1, -62, 8, -59, 11, -55, 16, -45, 8, -44, 10, -38, 3, -36, 3, -33, 6, -31, 8, -25, 7, -16, 8, -5, 13, 0, 5, 0, 2, -10, -2, -10, -4, 0, -13, 0, -8, -3, -7, -16, -7, -24, -9, -20, -8, -17, -10, -14, -13, -16, -13, -24 )
+
+[node name="Backpack" type="Polygon2D" parent="Visual/ShapeHang"]
+z_index = -1
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( -5, -32, -11, -34, -16, -29, -16, -17, -10, -13, -4, -15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/hang = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/walk = SubResource( 4 )
+
+[node name="RopeDetector" type="Area2D" parent="."]
+position = Vector2( 0, -38 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeDetector"]
+visible = false
+shape = SubResource( 5 )
+
+[node name="FloorCheckR" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 12, -7 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 1024
+
+[node name="FloorCheckL" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( -12, -7 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 1024
+
+[connection signal="body_entered" from="RopeDetector" to="." method="_on_RopeDetector_body_entered"]
