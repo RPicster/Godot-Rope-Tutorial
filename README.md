@@ -1,8 +1,14 @@
 # Rope-Tutorial for Godot 3.x
 
-Example project for player / physic based rope (Joint2D) in Godot 3.x
+Example project for player / physic based rope (Joint2D) in Godot 3.x.
+
 Please check out the YouTube videos on my channel for a explanation of the project.
+
 [**YouTube Channel**](https://www.youtube.com/c/Picster)
+
+[**First Part (Rope creation)**](https://www.youtube.com/watch?v=Dh9KotU2m1o)
+
+[**Second Part (Character interaction)**](https://youtu.be/ksj6lIfTjsw)
 
 
 # License
